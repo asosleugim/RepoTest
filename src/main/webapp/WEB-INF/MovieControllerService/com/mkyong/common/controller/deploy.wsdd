@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MovieControllerService WSDL service -->
+
+  <service name="MovieController" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://controller.common.mkyong.com"/>
+      <parameter name="wsdlServiceElement" value="MovieControllerService"/>
+      <parameter name="schemaQualified" value="http://controller.common.mkyong.com"/>
+      <parameter name="wsdlServicePort" value="MovieController"/>
+      <parameter name="className" value="com.mkyong.common.controller.MovieController"/>
+      <parameter name="wsdlPortType" value="MovieController"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://controller.common.mkyong.com" xmlns:retNS="http://controller.common.mkyong.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getMovie" qname="operNS:getMovie" returnQName="retNS:getMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controller.common.mkyong.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://controller.common.mkyong.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:model" type="tns:anyType"/>
+      </operation>
+      <parameter name="allowedMethods" value="getMovie"/>
+
+      <typeMapping xmlns:ns="http://controller.common.mkyong.com" qname="ns:&gt;getMovieResponse" type="java:com.mkyong.common.controller.GetMovieResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
