@@ -5,7 +5,7 @@
 <body>
 
 
-<% Movie movie = (Movie)request.getAttribute("movie");%>
+<% Movie movie = (Movie)request.getAttribute("sports");%>
 	<h1>Spring 3 MVC REST web service</h1>
 	
 	<h3>Movie Name :</h3>
