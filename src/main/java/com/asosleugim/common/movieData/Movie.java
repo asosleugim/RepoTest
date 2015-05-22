@@ -9,6 +9,8 @@ public class Movie {
 	private Date currentTime;
 	private String movieLocation;
 	private String movieType;
+	private Integer ticketPrice;
+	private String theatherName;
 
 	public void setMovieStartTime(Date movieStartTime) {
 		this.movieStartTime = movieStartTime;
@@ -50,6 +52,22 @@ public class Movie {
 
 	public void setMovieLocation(String movieLocation) {
 		this.movieLocation = movieLocation;
+	}
+
+	public Integer getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(Integer ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
+
+	public String getTheatherName() {
+		return theatherName;
+	}
+
+	public void setTheatherName(String theatherName) {
+		this.theatherName = theatherName;
 	}
 
 }

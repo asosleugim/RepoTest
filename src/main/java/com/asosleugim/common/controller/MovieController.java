@@ -28,11 +28,8 @@ public class MovieController {
 	public String getMovie(@PathVariable String name,
 			@ModelAttribute("movie") Movie movie, ModelMap model) {
 
-		// ModelAndView modelAndView = new ModelAndView();
-		// Movie movieObject = new Movie();
-		// movieObject.setCurrentTime(new Time(0));
-		// movieObject.setName(name);
-		// modelAndView.addObject("movieData", movieObject);
+	
+		movie.setName(name);
 		model.addAttribute("movie", movie);
 
 		return "list";
@@ -44,11 +41,7 @@ public class MovieController {
 	public String getSport(@PathVariable String name,
 			@ModelAttribute("sports") Movie sports, ModelMap model) {
 
-		// ModelAndView modelAndView = new ModelAndView();
-		// Movie movieObject = new Movie();
-		// movieObject.setCurrentTime(new Time(0));
-		// movieObject.setName(name);
-		// modelAndView.addObject("movieData", movieObject);
+		sports.setName(name);
 		model.addAttribute("sports", sports);
 
 		return "sportsList";
@@ -59,10 +52,11 @@ public class MovieController {
 	public Movie getMovieName() {
 		Movie movieObject = new Movie();
 		movieObject.setCurrentTime(new Date());
-		movieObject.setName("Terminator II");
-		movieObject.setMovieLocation("Austin, TX");
+		movieObject.setMovieLocation("Round Rock, TX");
 		movieObject.setMovieStartTime(new Date());
 		movieObject.setMovieType("Action");
+		movieObject.setTheatherName("Alamo Drafthourse Slaughter");
+		movieObject.setTicketPrice(20);
 
 		return movieObject;
 	}
@@ -72,10 +66,11 @@ public class MovieController {
 	public Movie getMovieSports() {
 		Movie movieObject = new Movie();
 		movieObject.setCurrentTime(new Date());
-		movieObject.setName("Troy");
-		movieObject.setMovieLocation("San Antonio, TX");
+		movieObject.setMovieLocation("Austin, TX");
 		movieObject.setMovieStartTime(new Date());
-		movieObject.setMovieType("Action");
+		movieObject.setMovieType("Sports");
+		movieObject.setTheatherName("Alamo DraftHouse Ritz");
+		movieObject.setTicketPrice(23);
 
 		return movieObject;
 	}
